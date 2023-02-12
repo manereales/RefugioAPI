@@ -1,0 +1,12 @@
+C:\Users\maner\Downloads\APIRefugio\CD_Datos\bin\Debug\net6.0\CD_Datos.deps.json
+C:\Users\maner\Downloads\APIRefugio\CD_Datos\bin\Debug\net6.0\CD_Datos.dll
+C:\Users\maner\Downloads\APIRefugio\CD_Datos\bin\Debug\net6.0\CD_Datos.pdb
+C:\Users\maner\Downloads\APIRefugio\CD_Datos\obj\Debug\net6.0\CD_Datos.csproj.AssemblyReference.cache
+C:\Users\maner\Downloads\APIRefugio\CD_Datos\obj\Debug\net6.0\CD_Datos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maner\Downloads\APIRefugio\CD_Datos\obj\Debug\net6.0\CD_Datos.AssemblyInfoInputs.cache
+C:\Users\maner\Downloads\APIRefugio\CD_Datos\obj\Debug\net6.0\CD_Datos.AssemblyInfo.cs
+C:\Users\maner\Downloads\APIRefugio\CD_Datos\obj\Debug\net6.0\CD_Datos.csproj.CoreCompileInputs.cache
+C:\Users\maner\Downloads\APIRefugio\CD_Datos\obj\Debug\net6.0\CD_Datos.dll
+C:\Users\maner\Downloads\APIRefugio\CD_Datos\obj\Debug\net6.0\refint\CD_Datos.dll
+C:\Users\maner\Downloads\APIRefugio\CD_Datos\obj\Debug\net6.0\CD_Datos.pdb
+C:\Users\maner\Downloads\APIRefugio\CD_Datos\obj\Debug\net6.0\ref\CD_Datos.dll

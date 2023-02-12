@@ -1,0 +1,17 @@
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\bin\Debug\CN_Entidad.dll
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\bin\Debug\System.Security.AccessControl.dll
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\bin\Debug\System.Security.Permissions.dll
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\bin\Debug\CN_Entidad.pdb
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\bin\Debug\System.Security.AccessControl.xml
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\bin\Debug\System.Security.Permissions.xml
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\maner\Downloads\APIRefugio\CapaDatos\obj\Debug\CapaDatos.pdb

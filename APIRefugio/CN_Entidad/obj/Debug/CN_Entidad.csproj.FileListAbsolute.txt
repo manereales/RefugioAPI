@@ -1,0 +1,8 @@
+C:\Users\maner\Downloads\APIRefugio\CN_Entidad\bin\Debug\CN_Entidad.dll
+C:\Users\maner\Downloads\APIRefugio\CN_Entidad\bin\Debug\CN_Entidad.pdb
+C:\Users\maner\Downloads\APIRefugio\CN_Entidad\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\maner\Downloads\APIRefugio\CN_Entidad\obj\Debug\CN_Entidad.csproj.AssemblyReference.cache
+C:\Users\maner\Downloads\APIRefugio\CN_Entidad\obj\Debug\CN_Entidad.csproj.CoreCompileInputs.cache
+C:\Users\maner\Downloads\APIRefugio\CN_Entidad\obj\Debug\CN_Entidad.csproj.CopyComplete
+C:\Users\maner\Downloads\APIRefugio\CN_Entidad\obj\Debug\CN_Entidad.dll
+C:\Users\maner\Downloads\APIRefugio\CN_Entidad\obj\Debug\CN_Entidad.pdb
