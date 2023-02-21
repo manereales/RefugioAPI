@@ -33,24 +33,25 @@ namespace AppRefugio.Controllers
 
         //test devops
 
-        //[HttpGet(Name = "obtenerAdoptante")]
-        //public async Task<ActionResult<AdoptantesListAnimalesDTO>> Get(int id)
-        //{
-        //    //var adoptantes = await context.Adoptantes.Include(x => x.Animales).FirstOrDefaultAsync(x => x.Id == id);
-        //    //if (adoptantes == null)
-        //    //{
-        //    //    return NotFound("no encontrado");
-        //    //}
+        [HttpGet("{id}", Name = "obtenerAdoptante")]
+        public async Task<ActionResult<AdoptanteDTO>> Get(int id)
+        {
+            //var adoptantes = await context.Adoptantes.Include(x => x.Animales).FirstOrDefaultAsync(x => x.Id == id);
+            var adoptantes = await context.Adoptantes.FirstOrDefaultAsync(x => x.Id == id);
+            //if (adoptantes == null)
+            //{
+            //    return NotFound("no encontrado");
+            //}
 
-        //    var dtos = mapper.Map<AdoptantesListAnimalesDTO>(adoptantes);
+            var dtos = mapper.Map<AdoptanteDTO>(adoptantes);
 
-        //    return dtos;
-        //}
+            return dtos;
+        }
 
-        [HttpPost("{animalesId:int}")]
+        [HttpPost]
         public async Task<ActionResult> Post(/*int animalesId, */[FromForm] AdoptanteCreacionDTO adoptanteCreacionDTO)
         {
-
+ 
             //var existe = await context.Animales.FirstOrDefaultAsync(x => x.Id == animalesId);
 
             //if (existe == null)

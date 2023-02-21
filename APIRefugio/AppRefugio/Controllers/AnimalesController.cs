@@ -49,9 +49,16 @@ namespace AppRefugio.Controllers
         public async Task<ActionResult> Post([FromForm]AnimalesCreacionDTO animalesCreacionDTO)
         {
             var animales = mapper.Map<Animales>(animalesCreacionDTO);
-
             context.Add(animales);
             await context.SaveChangesAsync();
+
+            var especie = animales.Especie;
+            var nombre = animales.Nombre;
+            var edad = animales.Edad;
+            var raza = animales.Raza;
+            var genero = animales.Genero;
+            var emails = new SendEmailsController(context, mapper);
+            emails.SendEmail(especie, nombre, edad, raza, genero);
 
             var dtos = mapper.Map<AnimalesDTO>(animales);
 

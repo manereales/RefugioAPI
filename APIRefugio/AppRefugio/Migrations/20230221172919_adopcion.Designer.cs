@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppRefugio.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221031201304_starter")]
-    partial class starter
+    [Migration("20230221172919_adopcion")]
+    partial class adopcion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,6 +24,31 @@ namespace AppRefugio.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("AppRefugio.Entidades.Adopcion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("AdoptanteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AnimalesId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaAdopcion")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Adopcion");
+                });
+
             modelBuilder.Entity("AppRefugio.Entidades.Adoptante", b =>
                 {
                     b.Property<int>("Id")
@@ -32,10 +57,10 @@ namespace AppRefugio.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("AnimalesId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Apellido")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Correo")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Direccion")
@@ -44,12 +69,13 @@ namespace AppRefugio.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Preferencia")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Telefono")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AnimalesId");
 
                     b.ToTable("Adoptantes");
                 });
@@ -62,6 +88,9 @@ namespace AppRefugio.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<bool>("Adoptado")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Descripcion")
                         .HasColumnType("nvarchar(max)");
 
@@ -69,19 +98,15 @@ namespace AppRefugio.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Especie")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Genero")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Raza")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Vacunas")
@@ -330,17 +355,6 @@ namespace AppRefugio.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("AppRefugio.Entidades.Adoptante", b =>
-                {
-                    b.HasOne("AppRefugio.Entidades.Animales", "Animales")
-                        .WithMany("Adoptantes")
-                        .HasForeignKey("AnimalesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Animales");
-                });
-
             modelBuilder.Entity("AppRefugio.Entidades.VeterinariosAnimal", b =>
                 {
                     b.HasOne("AppRefugio.Entidades.Animales", "Animales")
@@ -413,8 +427,6 @@ namespace AppRefugio.Migrations
 
             modelBuilder.Entity("AppRefugio.Entidades.Animales", b =>
                 {
-                    b.Navigation("Adoptantes");
-
                     b.Navigation("VeterinariosAnimales");
                 });
 

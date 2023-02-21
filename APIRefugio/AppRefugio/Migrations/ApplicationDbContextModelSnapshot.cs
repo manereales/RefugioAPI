@@ -22,6 +22,31 @@ namespace AppRefugio.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("AppRefugio.Entidades.Adopcion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("AdoptanteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AnimalesId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaAdopcion")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Adopcion");
+                });
+
             modelBuilder.Entity("AppRefugio.Entidades.Adoptante", b =>
                 {
                     b.Property<int>("Id")
@@ -33,10 +58,16 @@ namespace AppRefugio.Migrations
                     b.Property<string>("Apellido")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Correo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Direccion")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Preferencia")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefono")
@@ -45,27 +76,6 @@ namespace AppRefugio.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Adoptantes");
-                });
-
-            modelBuilder.Entity("AppRefugio.Entidades.AnimalAdoptante", b =>
-                {
-                    b.Property<int>("AdoptanteId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AnimalesId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("FechaAdopcion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.HasKey("AdoptanteId", "AnimalesId");
-
-                    b.HasIndex("AnimalesId");
-
-                    b.ToTable("AnimalAdoptantes");
                 });
 
             modelBuilder.Entity("AppRefugio.Entidades.Animales", b =>
@@ -86,19 +96,15 @@ namespace AppRefugio.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Especie")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Genero")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Raza")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Vacunas")
@@ -345,25 +351,6 @@ namespace AppRefugio.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("AppRefugio.Entidades.AnimalAdoptante", b =>
-                {
-                    b.HasOne("AppRefugio.Entidades.Adoptante", "Adoptante")
-                        .WithMany()
-                        .HasForeignKey("AdoptanteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AppRefugio.Entidades.Animales", "Animales")
-                        .WithMany()
-                        .HasForeignKey("AnimalesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Adoptante");
-
-                    b.Navigation("Animales");
                 });
 
             modelBuilder.Entity("AppRefugio.Entidades.VeterinariosAnimal", b =>

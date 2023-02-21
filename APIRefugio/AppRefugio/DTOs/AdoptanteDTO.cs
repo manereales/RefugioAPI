@@ -11,9 +11,11 @@ namespace AppRefugio.DTOs
         [Required]
         public string Apellido { get; set; }
         [Required]
-        [EmailAddress]
+        
         public string Direccion { get; set; }
         public string Correo { get; set; }
+        public string Preferencia { get; set; } 
+
 
     }
 }

@@ -5,22 +5,57 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AppRefugio.Migrations
 {
-    public partial class starter : Migration
+    public partial class adopcion : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Adopcion",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AnimalesId = table.Column<int>(type: "int", nullable: false),
+                    AdoptanteId = table.Column<int>(type: "int", nullable: false),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FechaAdopcion = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Adopcion", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Adoptantes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Apellido = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Direccion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Correo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Preferencia = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Adoptantes", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Animales",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Especie = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Especie = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Vacunas = table.Column<bool>(type: "bit", nullable: false),
                     Edad = table.Column<int>(type: "int", nullable: false),
-                    Raza = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Genero = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Raza = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Genero = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Adoptado = table.Column<bool>(type: "bit", nullable: false),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -81,29 +116,6 @@ namespace AppRefugio.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Veterinarios", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Adoptantes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Apellido = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Direccion = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    AnimalesId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Adoptantes", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Adoptantes_Animales_AnimalesId",
-                        column: x => x.AnimalesId,
-                        principalTable: "Animales",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -237,11 +249,6 @@ namespace AppRefugio.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Adoptantes_AnimalesId",
-                table: "Adoptantes",
-                column: "AnimalesId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
                 column: "RoleId");
@@ -288,6 +295,9 @@ namespace AppRefugio.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Adopcion");
+
             migrationBuilder.DropTable(
                 name: "Adoptantes");
 

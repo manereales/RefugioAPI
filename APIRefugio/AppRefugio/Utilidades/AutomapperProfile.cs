@@ -1,6 +1,6 @@
 ﻿using AppRefugio.DTOs;
 using AppRefugio.Entidades;
-using AppRefugio.Migrations;
+
 using AutoMapper;
 
 
@@ -21,8 +21,9 @@ namespace AppRefugio.Utilidades
             CreateMap<AdoptanteCreacionDTO, Adoptante>();
             //CreateMap<Adoptante, AdoptantesListAnimalesDTO>();
 
-            CreateMap<AnimalAdoptante, AnimalAdoptanteDTO>();
-            CreateMap<AnimalAdoptanteCreacionDTO, AnimalAdoptante>().ForMember(opciones => opciones.AnimalesId, x => x.MapFrom(MapAdopciones));
+            CreateMap<Adopcion, AnimalAdoptanteDTO>();
+            CreateMap<AnimalAdoptanteCreacionDTO, Adopcion>();
+            //CreateMap<AnimalAdoptanteCreacionDTO, AnimalAdoptante>().ForMember(opciones => opciones.AnimalesId, x => x.MapFrom(MapAdopciones));
         }
 
         private List<AnimalesDTO> MapVeterinarioDTOconAnimalesDTO(Veterinarios veterinarios, VeterinarioDTO veterinarioDTO)
@@ -72,24 +73,24 @@ namespace AppRefugio.Utilidades
             return resultado;
         }
 
-        private List<AnimalAdoptante> MapAdopciones(AnimalAdoptanteCreacionDTO animalAdoptanteCreacionDTO, AnimalAdoptante animalesAdoptante)
-        {
-            var lista = new List<AnimalAdoptante>();
+        //private List<AnimalAdoptante> MapAdopciones(AnimalAdoptanteCreacionDTO animalAdoptanteCreacionDTO, AnimalAdoptante animalesAdoptante)
+        //{
+        //    var lista = new List<AnimalAdoptante>();
 
-            if (animalAdoptanteCreacionDTO.animalId == null)
-            {
-                return lista;
-            }
-            foreach (var AnimalesId in animalAdoptanteCreacionDTO.animalId)
-            {
-                lista.Add(new AnimalAdoptante()
-                {
-                    AnimalesId = AnimalesId, 
-                });
-            }
-            return lista;
+        //    if (animalAdoptanteCreacionDTO.animalId == null)
+        //    {
+        //        return lista;
+        //    }
+        //    foreach (var AnimalesId in animalAdoptanteCreacionDTO.animalId)
+        //    {
+        //        lista.Add(new AnimalAdoptante()
+        //        {
+        //            AnimalesId = AnimalesId, 
+        //        });
+        //    }
+        //    return lista;
                         
-        }
+        //}
 
 
     }

@@ -15,7 +15,7 @@ namespace AppRefugio
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<VeterinariosAnimal>().HasKey(x => new { x.VeterinarioId, x.AnimalesId });
-            modelBuilder.Entity<AnimalAdoptante>().HasKey(x => new { x.AdoptanteId, x.AnimalesId });
+            //modelBuilder.Entity<AnimalAdoptante>().HasKey(x => new { x.AdoptanteId, x.AnimalesId });
 
 
         }
@@ -24,7 +24,7 @@ namespace AppRefugio
         public DbSet<Veterinarios> Veterinarios { get; set; }
         public DbSet<VeterinariosAnimal> veterinariosAnimales { get; set; }
         public DbSet<Adoptante> Adoptantes { get; set; }
-        public DbSet<AnimalAdoptante> AnimalAdoptantes { get; set; }
+        public DbSet<Adopcion> Adopcion { get; set; } 
 
     }
 }
